@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var fields = [UITextField]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        var frame = CGRectMake(50, 70, 200, 30)
+        var f1 = UITextField(frame: frame)
+        f1.addTarget(self, action: "boxValue:", forControlEvents: UIControlEvents.EditingChanged)
+        self.view.addSubview(f1)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,7 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func boxValue(sender: UITextField!){
+        println(sender.text)
+    }
     
 }
 
