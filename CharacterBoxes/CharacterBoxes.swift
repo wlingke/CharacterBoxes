@@ -16,8 +16,8 @@ class CharacterBoxes: UIView {
     
     private let horizontalSpacing = 10
     private let verticalSpacing = 10
-    private let fieldWidth = 20
-    private let fieldHeight = 20
+    private let fieldWidth = 30
+    private let fieldHeight = 30
     
     private var fieldMatrix: [[UITextField]]
 
@@ -42,7 +42,7 @@ class CharacterBoxes: UIView {
     }
 
     override func layoutSubviews() {
-        self.backgroundColor = UIColor.redColor();
+        self.backgroundColor = UIColor.whiteColor();
         
         for (var i = 0; i < self.rows; i++){
             for(var j = 0; j<self.columns; j++){
