@@ -10,16 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var fields = [UITextField]()
+    var boxes = CharacterBoxes(frame: CGRect(x: 30, y: 250, width: UIScreen.mainScreen().bounds.size.width - 30*2, height: 100), rows:2 , columns: 7)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var frame = CGRectMake(50, 70, 200, 30)
-        var f1 = UITextField(frame: frame)
-        f1.addTarget(self, action: "boxValue:", forControlEvents: UIControlEvents.EditingChanged)
-        self.view.addSubview(f1)
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,8 +21,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func boxValue(sender: UITextField!){
-        println(sender.text)
+    @IBAction func test(){
+       self.view.addSubview(boxes)
+    }
+    
+    @IBAction func dismiss(){
+        boxes.removeFromSuperview()
     }
     
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A426A06D19F56787003DEEAE /* CharacterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426A06C19F56787003DEEAE /* CharacterField.swift */; };
+		A426A06F19F6B96E003DEEAE /* CharacterBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426A06E19F6B96E003DEEAE /* CharacterBoxes.swift */; };
 		A47738A119EF8047009D5E65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47738A019EF8047009D5E65 /* AppDelegate.swift */; };
 		A47738A319EF8047009D5E65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47738A219EF8047009D5E65 /* ViewController.swift */; };
 		A47738A619EF8047009D5E65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47738A419EF8047009D5E65 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A426A06C19F56787003DEEAE /* CharacterField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterField.swift; sourceTree = "<group>"; };
+		A426A06E19F6B96E003DEEAE /* CharacterBoxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterBoxes.swift; sourceTree = "<group>"; };
 		A477389B19EF8047009D5E65 /* CharacterBoxes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterBoxes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A477389F19EF8047009D5E65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47738A019EF8047009D5E65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				A47738A019EF8047009D5E65 /* AppDelegate.swift */,
 				A47738A219EF8047009D5E65 /* ViewController.swift */,
+				A426A06E19F6B96E003DEEAE /* CharacterBoxes.swift */,
+				A426A06C19F56787003DEEAE /* CharacterField.swift */,
 				A47738A419EF8047009D5E65 /* Main.storyboard */,
 				A47738A719EF8047009D5E65 /* Images.xcassets */,
 				A47738A919EF8047009D5E65 /* LaunchScreen.xib */,
@@ -212,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A426A06F19F6B96E003DEEAE /* CharacterBoxes.swift in Sources */,
+				A426A06D19F56787003DEEAE /* CharacterField.swift in Sources */,
 				A47738A319EF8047009D5E65 /* ViewController.swift in Sources */,
 				A47738A119EF8047009D5E65 /* AppDelegate.swift in Sources */,
 			);
@@ -339,6 +347,7 @@
 				INFOPLIST_FILE = CharacterBoxes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -349,6 +358,7 @@
 				INFOPLIST_FILE = CharacterBoxes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -405,6 +415,7 @@
 				A47738BC19EF8047009D5E65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A47738BD19EF8047009D5E65 /* Build configuration list for PBXNativeTarget "CharacterBoxesTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +424,7 @@
 				A47738BF19EF8047009D5E65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
