@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CharacterBoxesDelegate {
+    func valuesDidChange(values: Array<String>)
+}
+
 class CharacterBoxes: UIView {
     
     private var rows: Int
@@ -21,7 +25,9 @@ class CharacterBoxes: UIView {
     
     private var fieldMatrix: [[UITextField]]
 
-    init(frame: CGRect, rows: Int, columns: Int) {
+    var delegate: CharacterBoxesDelegate?
+    
+    init(frame: CGRect, rows: Int, columns: Int, delegate: CharacterBoxesDelegate?) {
         var max_columns = Int(roundf((Float(frame.width) + Float(horizontalSpacing))/Float(fieldWidth + horizontalSpacing)))
         self.columns = min(max_columns, columns)
         
@@ -33,12 +39,13 @@ class CharacterBoxes: UIView {
         }
         
         self.horizontalPadding = (Double(frame.width) - Double(columns - 1) * Double(horizontalSpacing) - Double(columns) * Double(fieldWidth))/2
+        self.delegate = delegate
         
         super.init(frame: frame)
     }
 
     required convenience init(coder aDecoder: NSCoder) {
-        self.init(frame: CGRectMake(0, 0, 0, 0), rows: 0, columns: 0)
+        self.init(frame: CGRectMake(0, 0, 0, 0), rows: 0, columns: 0, delegate: nil)
     }
 
     override func layoutSubviews() {
@@ -46,13 +53,36 @@ class CharacterBoxes: UIView {
         
         for (var i = 0; i < self.rows; i++){
             for(var j = 0; j<self.columns; j++){
-                var array = self.fieldMatrix[i]
+                
                 var x = Double(horizontalPadding + Double(j*(fieldWidth + horizontalSpacing)))
                 var field = CharacterField(frame: CGRect(x: x, y: Double(i * (fieldHeight + verticalSpacing)), width: Double(fieldWidth), height: Double(fieldHeight)))
-                array.append(field)
+                field.addTarget(self, action: Selector("characterBoxesDidChange"), forControlEvents: UIControlEvents.EditingChanged)
+                self.fieldMatrix[i].append(field)
                 self.addSubview(field)
             }
+            
         }
+        
     }
     
+    func getCharacterAt(row: Int, column: Int) -> String {
+        return self.fieldMatrix[row][column].text
+    }
+    
+    func getValues() -> Array<String>{
+        var values = [String]();
+        
+        for(var i = 0; i<self.rows; i++){
+            for(var j = 0; j<self.columns; j++){
+                values.append(self.getCharacterAt(i, column: j))
+            }
+        }
+        
+        return values
+        
+    }
+    
+    func characterBoxesDidChange() {
+        self.delegate?.valuesDidChange(self.getValues())
+    }
 }

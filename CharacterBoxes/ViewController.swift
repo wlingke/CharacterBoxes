@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CharacterBoxesDelegate {
+    func valuesDidChange(values: Array<String>) {
+        println(values)
+    }
 
-    var boxes = CharacterBoxes(frame: CGRect(x: 30, y: 250, width: UIScreen.mainScreen().bounds.size.width - 30*2, height: 100), rows:2 , columns: 7)
+    var boxes = CharacterBoxes(frame: CGRect(x: 30, y: 250, width: UIScreen.mainScreen().bounds.size.width - 30*2, height: 100), rows:2 , columns: 7, delegate: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        boxes.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +32,8 @@ class ViewController: UIViewController {
     @IBAction func dismiss(){
         boxes.removeFromSuperview()
     }
+    
+    
     
 }
 
