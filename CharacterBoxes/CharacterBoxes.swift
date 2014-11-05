@@ -65,8 +65,29 @@ class CharacterBoxes: UIView {
         
     }
     
-    func getCharacterAt(row: Int, column: Int) -> String {
+    func getCharacterAt(#row: Int, column: Int) -> String {
         return self.fieldMatrix[row][column].text
+    }
+    
+    func setCharacterAt(#row: Int, column: Int, withString string: String) {
+        if(row < 0 || row > self.rows){
+            println("Row out of bounds")
+            return
+        }
+        
+        if(column < 0 || column > self.columns){
+            println("Column out of bounds")
+            return
+        }
+        
+        if(countElements(string) != 1){
+            println("String must be of length 1")
+            return
+        }
+        
+        self.fieldMatrix[row][column].text = string
+        self.characterBoxesDidChange()
+        
     }
     
     func getValues() -> Array<String>{
@@ -74,7 +95,7 @@ class CharacterBoxes: UIView {
         
         for(var i = 0; i<self.rows; i++){
             for(var j = 0; j<self.columns; j++){
-                values.append(self.getCharacterAt(i, column: j))
+                values.append(self.getCharacterAt(row:i, column: j))
             }
         }
         

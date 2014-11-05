@@ -33,7 +33,9 @@ class ViewController: UIViewController, CharacterBoxesDelegate {
         boxes.removeFromSuperview()
     }
     
-    
+    @IBAction func letterChange(){
+        boxes.setCharacterAt(row: 1, column: 1, withString: "a")
+    }
     
 }
 
